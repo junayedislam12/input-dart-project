@@ -1,49 +1,23 @@
+import 'dart:ffi';
 import 'dart:io';
 
-String Employ_list() {
-  stdout.write('Please Enter Employ Name: ');
+List<String> employName() {
+  stdout.write('Please Enter Your Name:');
   String name = stdin.readLineSync()!;
-  return name;
-}
+  List<String> value = name.toString().split(',');
+  List<String> finalKey = [];
+  for (int i= 0; i <= value.length-1 ; i++) {
+    //for Firt lettr uppercase
+String imputValue = value[i].trim()[0].toUpperCase();
+finalKey.add(imputValue+value[i].trim().substring(1));
+print(finalKey[i]);
 
-String Employ_listOne() {
-  stdout.write('Please Enter Employs NameOne: ');
-  String name1 = stdin.readLineSync()!;
-  return name1;
-}
+  }
 
-String Employ_listTwo() {
-  stdout.write('Please Enter Employs NameTwo: ');
-  String nameOne = stdin.readLineSync()!;
-  return nameOne;
-}
-
-String Employ_listThree() {
-  stdout.write('Please Enter Employs NameThree: ');
-  String nameThree = stdin.readLineSync()!;
-  return nameThree;
-}
-
-String Employ_listFour() {
-  stdout.write('Please Enter Employs NameFour: ');
-  String nameFour = stdin.readLineSync()!;
-  return nameFour;
-}
-
-List<String> EmployName() {
-  List<String> userName = [
-    Employ_list(),
-    Employ_listOne(),
-    Employ_listTwo(),
-    Employ_listThree(),
-  Employ_listFour()
-  ];
-  return userName;
+  return value;
 }
 
 main() {
- List<String> value = EmployName();
- for(String finalValue in value){
-   print(finalValue);
- }
+  List<String> finalValue = employName();
+  print(finalValue);
 }
